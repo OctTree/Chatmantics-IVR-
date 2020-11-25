@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
 app.get('/webhooks/answer', (req, res) => {
-    console.log(req.body);
+    console.log(__dirname + "/assets/stream/Credit_Repair_IVR.mp3");
     const ncco = [{
         action: "stream",
         streamUrl: [__dirname + "/assets/stream/Credit_Repair_IVR.mp3"]
