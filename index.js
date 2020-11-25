@@ -7,7 +7,7 @@ app.get('/webhooks/answer', (req, res) => {
     console.log(req.body);
     const ncco = [{
         action: "stream",
-        streamUrl: ["./assets/stream/Credit Repair IVR.mp3"]
+        streamUrl: ["./assets/stream/Credit_Repair_IVR.mp3"]
       },
       {
         action: 'input',
