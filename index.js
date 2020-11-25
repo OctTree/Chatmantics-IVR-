@@ -6,9 +6,8 @@ app.use(bodyParser.json())
 app.get('/webhooks/answer', (req, res) => {
     console.log(req.body);
     const ncco = [{
-        action: 'talk',
-        bargeIn: true,
-        text: 'Hello. This is John Simth Carolina. Press 1 to connect to agent, press 2 to opt out.'
+        action: "stream",
+        streamUrl: ["https://dl.espressif.com/dl/audio/ff-16b-2c-44100hz.mp3"]
       },
       {
         action: 'input',
