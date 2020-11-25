@@ -6,9 +6,8 @@ app.use(bodyParser.json())
 app.get('/webhooks/answer', (req, res) => {
     console.log(req.body);
     const ncco = [{
-        action: 'talk',
-        bargeIn: true,
-        text: 'Hello. This is John. Press 1 to connect to agent, press 2 to opt out.'
+        action: 'record',
+        "eventUrl": ["https://sfperformances.org/img/audio/BobCast8.mp3"]
       },
       {
         action: 'input',
