@@ -2,12 +2,13 @@ const app = require('express')()
 const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
+app.use(express.static('assets'))
 
 app.get('/webhooks/answer', (req, res) => {
     console.log(req.body);
     const ncco = [{
         action: "stream",
-        streamUrl: ["./assets/stream/Credit_Repair_IVR.mp3"]
+        streamUrl: ["/stream/Credit_Repair_IVR.mp3"]
       },
       {
         action: 'input',
