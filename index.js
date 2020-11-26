@@ -58,7 +58,9 @@ app.post('/webhooks/dtmf', (req, res) => {
 
 })
 
-app.get('webhooks_sj/answer', (req, res) => {
+
+
+app.get('/webhook_sj/answer', (req, res) => {
     const ncco = [{
         action: "stream",
         streamUrl: ["http://3.88.217.29:3000/stream/Credit_Repair_IVR.mp3"],
@@ -69,7 +71,7 @@ app.get('webhooks_sj/answer', (req, res) => {
     {
         action: 'input',
         maxDigits: 1,
-        eventUrl: [`${req.protocol}://${req.get('host')}/webhooks_sj/dtmf`]
+        eventUrl: [`${req.protocol}://${req.get('host')}/webhook_sj/dtmf`]
     }
     ]
 
@@ -78,12 +80,12 @@ app.get('webhooks_sj/answer', (req, res) => {
 })
 
 
-app.post('/webhooks_sj/events', (req, res) => {
+app.post('/webhook_sj/events', (req, res) => {
     console.log(req.body)
     res.send(200);
 })
 
-app.post('webhooks_sj/dtmf', (req, res) => {
+app.post('/webhook_sj/dtmf', (req, res) => {
     if (req.body.dtmf == '1') {
         const ncco = [{
             action: 'talk',
