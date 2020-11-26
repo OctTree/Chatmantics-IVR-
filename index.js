@@ -7,7 +7,7 @@ app.get('/webhooks/answer', (req, res) => {
     console.log(__dirname + "/assets/stream/Credit_Repair_IVR.mp3");
     const ncco = [{
         action: "stream",
-        streamUrl: ["http://3.88.217.29/assets/stream/Credit_Repair_IVR.mp3"],
+        streamUrl: ["http://3.88.217.29:3000/assets/stream/Credit_Repair_IVR.mp3"],
         level: 1,
         bargeIn: true
 
