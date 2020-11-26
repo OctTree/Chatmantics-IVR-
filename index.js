@@ -7,8 +7,10 @@ app.get('/webhooks/answer', (req, res) => {
     console.log(__dirname + "/assets/stream/Credit_Repair_IVR.mp3");
     const ncco = [{
         action: "stream",
-        streamUrl: [__dirname + "/assets/stream/Credit_Repair_IVR.mp3"],
+        streamUrl: ["https://github.com/oct-cybertree/Chatmantics-IVR-/blob/master/assets/stream/Credit_Repair_IVR.mp3"],
         level: 1,
+        bargeIn: true
+
       },
       {
         action: 'input',
