@@ -7,7 +7,7 @@ app.use(bodyParser.json())
 app.get('/webhooks/answer', (req, res) => {
     const ncco = [{
         action: "stream",
-        streamUrl: ["http://3.88.217.29:3000/assets/stream/Credit_Repair_IVR.mp3"],
+        streamUrl: ["http://3.88.217.29:3000/stream/Credit_Repair_IVR.mp3"],
         level: 1,
         bargeIn: true
 
