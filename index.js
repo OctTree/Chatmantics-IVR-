@@ -77,6 +77,12 @@ app.get('webhooks_sj/answer', (req, res) => {
 
 })
 
+
+app.post('/webhooks_sj/events', (req, res) => {
+    console.log(req.body)
+    res.send(200);
+})
+
 app.post('webhooks_sj/dtmf', (req, res) => {
     if (req.body.dtmf == '1') {
         const ncco = [{
