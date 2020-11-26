@@ -37,7 +37,7 @@ app.post('/webhooks/dtmf', (req, res) => {
     if (req.body.dtmf == '1') {
         const ncco = [{
             action: 'talk',
-            text: `You pressed ${req.body.dtmf}`
+            text: `Please hold while we transfer your call.`
         },
         {
             action: 'connect',
@@ -53,7 +53,6 @@ app.post('/webhooks/dtmf', (req, res) => {
     else if (req.body.dtmf == '2') {
         const ncco = [{
             action: 'talk',
-            text: `You pressed ${req.body.dtmf}`
         }]
         res.json(ncco)
     }
