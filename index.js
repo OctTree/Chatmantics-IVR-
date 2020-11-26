@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(express.static('assets'));
 const TO_NUMBER = '+18333210371';
-// const TO_NUMBER_SJ = '+18334800563';
-const TO_NUMBER_SJ = '+16299999319';
+const TO_NUMBER_SJ = '+18334800563';
 
 app.get('/webhooks/answer', (req, res) => {
     const ncco = [{
@@ -58,8 +57,6 @@ app.post('/webhooks/dtmf', (req, res) => {
 
 })
 
-
-
 app.get('/webhook_sj/answer', (req, res) => {
     const ncco = [{
         action: "stream",
@@ -78,7 +75,6 @@ app.get('/webhook_sj/answer', (req, res) => {
     res.json(ncco)
 
 })
-
 
 app.post('/webhook_sj/events', (req, res) => {
     console.log(req.body)
