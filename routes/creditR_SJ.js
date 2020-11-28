@@ -2,8 +2,8 @@ require('dotenv').config()
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-const TO_NUMBER_SJ = '+18334800563';
-// const TO_NUMBER_SJ = process.env.TO_NUMBER_SJ;
+// const TO_NUMBER_SJ = '+18334800563';
+const TO_NUMBER_SJ = process.env.TO_NUMBER_SJ;
 
 router.use(bodyParser.json());
 router.get('/answer', (req, res) => {
