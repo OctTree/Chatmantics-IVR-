@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const TO_NUMBER_OB = '+17867891610';
 
 router.use(bodyParser.json());
+router.use(express.static('assets'));
 router.get('/answer', (req, res) => {
     const ncco = [{
         action: "stream",
