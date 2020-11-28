@@ -1,11 +1,10 @@
-require('dotenv').config()
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 const TO_NUMBER_OB = '+17867891610';
-// const TO_NUMBER_OB = process.env.TO_NUMBER_OB;
 
 router.use(bodyParser.json());
+// router.use(express.static('assets'));
 router.get('/answer', (req, res) => {
     const ncco = [{
         action: "stream",
