@@ -17,10 +17,10 @@ router.get('/answer', (req, res) => {
     {
         action: 'input',
         maxDigits: 1,
-        type: ['dtmf'],
-        dtmf: { 
-            timeOut: 5,            
-          },
+        // type: ['dtmf'],
+        // dtmf: { 
+        //     timeOut: 5,            
+        //   },
         eventUrl: [`${req.protocol}://${req.get('host')}/webhook_sj/dtmf`]
     }
     ]
