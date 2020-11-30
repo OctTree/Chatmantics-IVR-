@@ -17,7 +17,7 @@ router.get('/answer', (req, res) => {
     {
         action: 'input',
         maxDigits: 1,
-        type:'dtmf',
+        type: ['dtmf', 'speech'],
         dtmf: { 
             time_out: true            
           },
