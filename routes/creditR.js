@@ -20,7 +20,7 @@ router.get('/answer', (req, res) => {
         type: ['dtmf', 'speech'],
         dtmf: { 
             time_out: true,
-            timeout: 5,            
+            timeOut: 5,            
           },
         eventUrl: [`${req.protocol}://${req.get('host')}/webhooks/dtmf`]
     }
@@ -36,7 +36,7 @@ router.post('/events', (req, res) => {
 })
 
 router.post('/dtmf', (req, res) => {
-    console.log(req.body.dtmf.timeout);
+    console.log(req.body.dtmf.timed_out);
     if (req.body.dtmf == '1') {
         const ncco = [{
             action: 'talk',
