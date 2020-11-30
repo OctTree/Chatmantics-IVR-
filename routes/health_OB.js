@@ -17,6 +17,9 @@ router.get('/answer', (req, res) => {
     {
         action: 'input',
         maxDigits: 1,
+        dtmf: { 
+            time_out: true            
+          },
         eventUrl: [`${req.protocol}://${req.get('host')}/webhook_ob/dtmf`]
     }
     ]
