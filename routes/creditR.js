@@ -17,6 +17,7 @@ router.get('/answer', (req, res) => {
     {
         action: 'input',
         maxDigits: 1,
+        type:'dtmf',
         dtmf: { 
             time_out: true            
           },
@@ -34,7 +35,7 @@ router.post('/events', (req, res) => {
 })
 
 router.post('/dtmf', (req, res) => {
-    console.log(req.body.dtmf.time_out);
+    console.log(req.body.dtmf);
     if (req.body.dtmf == '1') {
         const ncco = [{
             action: 'talk',
