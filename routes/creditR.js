@@ -19,7 +19,8 @@ router.get('/answer', (req, res) => {
         maxDigits: 1,
         type: ['dtmf', 'speech'],
         dtmf: { 
-            time_out: true            
+            time_out: true,
+            timeout: 5,            
           },
         eventUrl: [`${req.protocol}://${req.get('host')}/webhooks/dtmf`]
     }
