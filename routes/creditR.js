@@ -35,7 +35,6 @@ router.post('/events', (req, res) => {
 })
 
 router.post('/dtmf', (req, res) => {
-    console.log(req.body.dtmf.timed_out);
     if (req.body.dtmf == '1') {
         const ncco = [{
             action: 'talk',
