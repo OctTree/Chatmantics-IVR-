@@ -35,8 +35,12 @@ router.post('/events', (req, res) => {
 })
 
 router.post('/dtmf', (req, res) => {
-    console.log(req.body.dtmf);
-    if (req.body.dtmf == '1') {
+
+    const { dtmf: { digits, timed_out: timedOut } } = req.body;
+    if(timeOut){
+        res.json(ncco)
+    }
+    if (req.body.dtmf === '1') {
         const ncco = [{
             action: 'talk',
             text: `Please hold while we transfer your call.`
@@ -52,7 +56,7 @@ router.post('/dtmf', (req, res) => {
         ]
         res.json(ncco)
     }
-    else if (req.body.dtmf == '2') {
+    else if (req.body.dtmf === '2') {
         const ncco = [{
             action: 'talk',
         }]
