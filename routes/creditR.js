@@ -57,9 +57,9 @@ router.post('/dtmf', (req, res) => {
         res.json(ncco)
     }
     else if (req.body.dtmf === '2') {
-        const ncco = [{
-            action: 'talk',
-        }]
+        // const ncco = [{
+        //     action: 'talk',
+        // }]
         res.json(ncco)
     }
 
