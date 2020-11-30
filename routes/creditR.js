@@ -17,9 +17,9 @@ router.get('/answer', (req, res) => {
             action: 'input',
             maxDigits: 1,
             type: ['dtmf'],
-            dtmf: {
-                timeOut: 5,
-            },
+            // dtmf: {
+            //     timeOut: 5,
+            // },
             eventUrl: [`${req.protocol}://${req.get('host')}/webhooks/dtmf`]
         }
     ];
@@ -34,10 +34,10 @@ router.post('/events', (req, res) => {
 router.post('/dtmf', (req, res) => {
     console.log(req.body);
     const { dtmf: { digits, timed_out: timedOut } } = req.body;
-    if (timedOut) {
-        // Disconenct the call
-        return res.json([]);
-    }
+    // if (timedOut) {
+    //     // Disconenct the call
+    //     return res.json([]);
+    // }
     if (digits === '1') {
         const ncco = [
             {
