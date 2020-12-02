@@ -2,6 +2,7 @@ require('dotenv').config()
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
+const { response } = require('express');
 // const TO_NUMBER_SJ = '+18334800563';
 const TO_NUMBER_SJ = process.env.TO_NUMBER_SJ;
 
@@ -31,6 +32,13 @@ router.post('/events', (req, res) => {
 })
 
 router.post('/dtmf', (req, res) => {
+
+    axio.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.body.from}`)
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => console.error(error));
+
     if (req.body.dtmf == '1') {
         const ncco = [{
             action: 'talk',
