@@ -10,6 +10,13 @@ const TO_NUMBER_SJ = process.env.TO_NUMBER_SJ;
 
 router.use(bodyParser.json());
 router.get('/answer', (req, res) => {
+    
+    axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.body.from}`)
+    .then(response => {
+        console.log(response.data);
+    })
+    .catch(error => console.error(error));
+    
     const ncco = [{
         action: "stream",
         streamUrl: ["http://3.88.217.29:3000/stream/Credit_Repair_IVR.mp3"],
@@ -34,13 +41,6 @@ router.post('/events', (req, res) => {
 })
 
 router.post('/dtmf', (req, res) => {
-
-    axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.body.from}`)
-    .then(response => {
-        console.log(response.data);
-    })
-    .catch(error => console.error(error));
-
     if (req.body.dtmf == '1') {
         const ncco = [{
             action: 'talk',
