@@ -10,7 +10,7 @@ router.get('/answer', (req, res) => {
 
     axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.query.from}`)
         .then(response => {
-            console.log(`Chatmantics DMS Health OB => ${response.data.dnc}`);
+            console.log(`Chatmantics DMS Health OB => dnc: ${response.data.dnc}`);
             if (response.data.dnc === false) {
                 const ncco = [{
                     action: "stream",
