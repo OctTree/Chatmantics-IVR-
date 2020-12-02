@@ -11,7 +11,7 @@ router.get('/answer', (req, res) => {
 
     axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.query.from}`)
         .then(response => {
-            console.log(`Chatmantics DMS CreditR SJ => ${response.data}`);
+            console.log(`Chatmantics DMS CreditR SJ => ${response.data.dnc}`);
             if (response.data.dnc === false) {
                 const ncco = [{
                     action: "stream",
