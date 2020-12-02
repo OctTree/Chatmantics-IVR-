@@ -33,7 +33,7 @@ router.post('/events', (req, res) => {
 
 router.post('/dtmf', (req, res) => {
 
-    axio.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.body.from}`)
+    axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.body.from}`)
     .then(response => {
         console.log(response.data);
     })
