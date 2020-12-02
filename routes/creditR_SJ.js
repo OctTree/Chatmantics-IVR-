@@ -4,34 +4,38 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const { response } = require('express');
 const axios = require('axios');
-
-// const TO_NUMBER_SJ = '+18334800563';
 const TO_NUMBER_SJ = process.env.TO_NUMBER_SJ;
 
 router.use(bodyParser.json());
 router.get('/answer', (req, res) => {
-    
-    axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.body.from}`)
-    .then(response => {
-        console.log(response.data);
-    })
-    .catch(error => console.error(error));
-    
-    const ncco = [{
-        action: "stream",
-        streamUrl: ["http://3.88.217.29:3000/stream/Credit_Repair_IVR.mp3"],
-        level: 1,
-        bargeIn: true
 
-    },
-    {
-        action: 'input',
-        maxDigits: 1,
-        eventUrl: [`${req.protocol}://${req.get('host')}/webhook_sj/dtmf`]
-    }
-    ]
+    axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.query.from}`)
+        .then(response => {
+            console.log(response.data.dnc);
+            if (response.data.dnc === false) {
+                const ncco = [{
+                    action: "stream",
+                    streamUrl: ["http://3.88.217.29:3000/stream/Credit_Repair_IVR.mp3"],
+                    level: 1,
+                    bargeIn: true
+                },
+                {
+                    action: 'input',
+                    maxDigits: 1,
+                    eventUrl: [`${req.protocol}://${req.get('host')}/webhook_sj/dtmf`]
+                }
+                ]
 
-    res.json(ncco)
+                res.json(ncco);
+            }
+            else if(response.data.dnc === true){
+                const ncco = [{
+                    action: 'talk'
+                }]
+                res.json(ncco);
+            }
+        })
+        .catch(error => console.error(error));
 
 })
 
@@ -59,9 +63,9 @@ router.post('/dtmf', (req, res) => {
     }
     else if (req.body.dtmf == '2') {
         const ncco = [{
-            action: 'talk',
+            action: 'talk'
         }]
-        res.json(ncco)
+        res.json(ncco);
     }
 
 })

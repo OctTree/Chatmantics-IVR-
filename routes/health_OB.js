@@ -2,27 +2,39 @@ require('dotenv').config()
 const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
-// const TO_NUMBER_OB = '+17867891610';
+const axios = require('axios');
 const TO_NUMBER_OB = process.env.TO_NUMBER_OB;
 
 router.use(bodyParser.json());
 router.get('/answer', (req, res) => {
-    const ncco = [{
-        action: "stream",
-        streamUrl: ["http://3.88.217.29:3000/stream/Health_IVR.mp3"],
-        level: 1,
-        bargeIn: true
 
-    },
-    {
-        action: 'input',
-        maxDigits: 1,
-        eventUrl: [`${req.protocol}://${req.get('host')}/webhook_ob/dtmf`]
-    }
-    ]
+    axios.get(`https://api.console.chatmantics.com/v1/dnc/check?phoneNumber=${req.query.from}`)
+        .then(response => {
+            console.log(response.data.dnc);
+            if (response.data.dnc === false) {
+                const ncco = [{
+                    action: "stream",
+                    streamUrl: ["http://3.88.217.29:3000/stream/Credit_Repair_IVR.mp3"],
+                    level: 1,
+                    bargeIn: true
+                },
+                {
+                    action: 'input',
+                    maxDigits: 1,
+                    eventUrl: [`${req.protocol}://${req.get('host')}/webhook_ob/dtmf`]
+                }
+                ]
 
-    res.json(ncco)
-
+                res.json(ncco);
+            }
+            else if(response.data.dnc === true){
+                const ncco = [{
+                    action: 'talk'
+                }]
+                res.json(ncco);
+            }
+        })
+        .catch(error => console.error(error));
 })
 
 router.post('/events', (req, res) => {
