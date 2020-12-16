@@ -21,7 +21,7 @@ router.get('/answer', (req, res) => {
                 {
                     action: 'input',
                     maxDigits: 1,
-                    eventUrl: [`${req.protocol}://${req.get('host')}/webhooks_Sec/dtmf`]
+                    eventUrl: [`${req.protocol}://${req.get('host')}/webhook_sec/dtmf`]
                 }
                 ]
 
