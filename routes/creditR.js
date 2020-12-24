@@ -65,7 +65,7 @@ router.post('/dtmf', (req, res) => {
             action: 'talk',
         }]
         try {
-            await axios.get(`https://api.console.chatmantics.com/v1/dnc?phoneNumber=${req.body.from}`);
+            axios.get(`https://api.console.chatmantics.com/v1/dnc?phoneNumber=${req.body.from}`);
         } catch (err) {
             console.log(err);
         }
