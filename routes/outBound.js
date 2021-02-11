@@ -10,3 +10,5 @@ router.get('/', (req, res) => {
     console.log(req.body);
     res.send('Yahoo!');
 })
+
+module.exports = router;
