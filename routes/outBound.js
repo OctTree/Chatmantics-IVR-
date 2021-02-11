@@ -22,11 +22,9 @@ router.get('/', (req, res) => {
         }
     })
         .then(response => {
-            console.log(response.data);
+            console.log(response.data + 'welcome');
         })
         .catch(error => console.error(error))
-    console.log(req.body);
-    console.log(req.body);
     res.send('Yahoo!');
 })
 
