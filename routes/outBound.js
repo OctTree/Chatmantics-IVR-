@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
             Url: 'https://api.teleapi.net/rcml/fourscore.xml',
         },
         headers: {
-          Authorization: `Basic ${varToken}`,
+          Authorization: `Basic ZjhjYTA2N2YtNjc0Mi00OGVmLTg4NjgtZjMyNWE1MzczZDhkOkFDZGU4MjUxYjk1NmI3OTU4MTE2ZWMzYzFiNTlkNDE3OTA=`,
         }
     })
     .then(response => {
