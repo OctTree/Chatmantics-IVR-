@@ -3,8 +3,6 @@ const express = require("express");
 const router = express.Router();
 const bodyParser = require('body-parser');
 const axios = require('axios');
-const Call_API_SID_Token = 'ACde8251b956b7958116ec3c1b59d41790';
-const Token = 'f8ca067f-6742-48ef-8868-f325a5373d8d';
 
 router.use(bodyParser.json());
 
@@ -22,9 +20,10 @@ router.get('/', (req, res) => {
         }
     })
         .then(response => {
-            console.log(response.data + 'welcome');
+            console.log(response.data);
         })
         .catch(error => console.error(error))
+    res.send('Yahoo!');
 })
 
 module.exports = router;
