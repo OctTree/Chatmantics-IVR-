@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     var data = new FormData();
     var varToken = buffer.from(`${Token}:${Call_API_SID_Token}`).toString('base64');
     data.append('From', req.query.callerId);
-    data.append('To', req.query.forwardTo);
+    data.append('To', req.query.To);
     data.append('Url', 'https://api.teleapi.net/rcml/fourscore.xml');
 
     var config = {
