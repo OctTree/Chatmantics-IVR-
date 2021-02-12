@@ -5,13 +5,13 @@ const bodyParser = require('body-parser');
 const axios = require('axios');
 var FormData = require('form-data');
 const Call_API_SID_Token = 'ACde8251b956b7958116ec3c1b59d41790';
-const Token = 'f8ca067f-6742-48ef-8868-f325a5373d8d';
+// const Token = 'f8ca067f-6742-48ef-8868-f325a5373d8d'
 router.use(bodyParser.json());
 
 router.get('/', (req, res) => {
     var data = new FormData();
-    data.append('From', req.callerId);
-    data.append('To', req.forwardTo);
+    data.append('From', req.query.callerId);
+    data.append('To', req.query.forwardTo);
     data.append('Url', 'https://api.teleapi.net/rcml/fourscore.xml');
 
     var config = {
@@ -27,6 +27,7 @@ router.get('/', (req, res) => {
     axios(config)
         .then(function (response) {
             console.log(JSON.stringify(response.data));
+            res.send('calling...')
         })
         .catch(function (error) {
             console.log(error);
