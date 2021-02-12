@@ -25,7 +25,6 @@ router.get('/', (req, res) => {
             console.log(response.data + 'welcome');
         })
         .catch(error => console.error(error))
-    res.send('Yahoo!');
 })
 
 module.exports = router;
