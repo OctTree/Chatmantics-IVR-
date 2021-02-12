@@ -9,7 +9,7 @@ const buffer = require('buffer/').Buffer;
 const Call_API_SID_Token = 'ACde8251b956b7958116ec3c1b59d41790';
 const Token = 'f8ca067f-6742-48ef-8868-f325a5373d8d';
 
-router.get('/', (req, res) => {
+router.all('/', (req, res) => {
     var data = new FormData();
     var varToken = buffer.from(`${Token}:${Call_API_SID_Token}`).toString('base64');
     data.append('From', req.query.callerId);
